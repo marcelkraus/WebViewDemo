@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nlM-lE-1Jt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="kKQ-vw-imL">
+            <objects>
+                <navigationController id="nlM-lE-1Jt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y3D-fQ-2cv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NXT-YA-HVB" kind="relationship" relationship="rootViewController" id="gyK-w3-oee"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSf-Ya-bDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="156"/>
+        </scene>
+        <!--Teaser Overview View Controller-->
+        <scene sceneID="l8y-wV-JiS">
+            <objects>
+                <viewController id="NXT-YA-HVB" customClass="TeaserOverviewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CUY-N3-6u6"/>
+                        <viewControllerLayoutGuide type="bottom" id="8YI-6Z-vBq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oWi-Yc-eot">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-rQ-nNR">
+                                <rect key="frame" x="130" y="318.5" width="115" height="30"/>
+                                <state key="normal" title="Chefkoch Article"/>
+                                <connections>
+                                    <action selector="secondWebButtonWasPressed:" destination="NXT-YA-HVB" eventType="touchUpInside" id="vXV-iq-p6v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kb-wr-6do">
+                                <rect key="frame" x="132" y="72" width="111" height="30"/>
+                                <state key="normal" title="Chefkoch Home"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-7d-4OA">
+                                <rect key="frame" x="137.5" y="629" width="100" height="30"/>
+                                <state key="normal" title="Private Project"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5kb-wr-6do" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oWi-Yc-eot" secondAttribute="leadingMargin" constant="8" id="JIC-nQ-miz"/>
+                            <constraint firstItem="5kb-wr-6do" firstAttribute="centerX" secondItem="oWi-Yc-eot" secondAttribute="centerX" id="Olu-hw-jug"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5kb-wr-6do" secondAttribute="trailing" constant="8" id="YRa-SV-DI8"/>
+                            <constraint firstItem="OUk-7d-4OA" firstAttribute="centerX" secondItem="oWi-Yc-eot" secondAttribute="centerX" id="Za6-Kl-tfA"/>
+                            <constraint firstItem="5kb-wr-6do" firstAttribute="top" secondItem="CUY-N3-6u6" secondAttribute="bottom" constant="8" id="boi-3S-vmD"/>
+                            <constraint firstItem="OUk-7d-4OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oWi-Yc-eot" secondAttribute="leadingMargin" constant="8" id="f6Q-eq-e8w"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="OUk-7d-4OA" secondAttribute="trailing" constant="8" id="h0T-gp-iVP"/>
+                            <constraint firstItem="NVF-rQ-nNR" firstAttribute="centerY" secondItem="oWi-Yc-eot" secondAttribute="centerY" id="mGG-J0-Cdw"/>
+                            <constraint firstItem="8YI-6Z-vBq" firstAttribute="top" secondItem="OUk-7d-4OA" secondAttribute="bottom" constant="8" id="xLZ-k1-apB"/>
+                            <constraint firstItem="NVF-rQ-nNR" firstAttribute="centerX" secondItem="oWi-Yc-eot" secondAttribute="centerX" id="xpl-4D-u1c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="q8P-Dl-xjY"/>
+                    <connections>
+                        <outlet property="firstWebButton" destination="5kb-wr-6do" id="O0A-b5-hjS"/>
+                        <outlet property="secondWebButton" destination="NVF-rQ-nNR" id="hMb-3n-ZKq"/>
+                        <outlet property="thirdWebButton" destination="OUk-7d-4OA" id="RFD-nn-wbB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vkT-Ha-op5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="155"/>
+        </scene>
+    </scenes>
+</document>
