@@ -1,4 +1,4 @@
-#import "MyWebViewController.h"
+#import "FirstWebController.h"
 #import <WebKit/WebKit.h>
 
 /**
@@ -6,11 +6,11 @@
  * Fortschritt des Ladens der Web-Inhalte informiert zu werden. Auch Fehler
  * werden über das Delegate zugreifbar.
  */
-@interface MyWebViewController () <WKNavigationDelegate>
+@interface FirstWebController () <WKNavigationDelegate>
 @property (nonatomic, strong) WKWebView *webView;
 @end
 
-@implementation MyWebViewController
+@implementation FirstWebController
 
 /**
  * Die Methode wird aufgerufen, unmittelbar nachdem die View geladen wurde.
@@ -32,9 +32,9 @@
 
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
-    [self.view addSubview:self.webView];
-    
     self.webView.navigationDelegate = self;
+
+    [self.view addSubview:self.webView];
 }
 
 /**
@@ -49,9 +49,11 @@
 }
 
 /**
- * Die nachfolgenden Methoden sind Bestandteil des Delegates und können optional
- * implementiert werden. In diesem Beispiel werden sie nur für das Debugging im
- * Fehlerfall verwendet und erhalten keine individuelle Implementierung.
+ * Die nachfolgenden Methode ist Bestandteil des Delegates, weitere können
+ * optional implementiert werden.
+ *
+ * In diesem Beispiel wird die Methode für die Evaluierung des Javascripts über
+ * den DOM verwendet.
  *
  * Pragma Marks werden innherhalb des Teams als bevorzugtes Mittel der optischen
  * Trennung zwischen Abschnitten in Klassen verwendet. Der Bindestrich sorgt für
@@ -60,13 +62,11 @@
 
 #pragma mark - WKNavigationDelegate
 
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-}
-
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-}
-
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSString *javaScript = @"document.body.getAttribute('data-tracking')";
+    [webView evaluateJavaScript:javaScript completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        result ? NSLog(@"result %@", result) : NSLog(@"error %@", error);
+    }];
 }
 
 @end

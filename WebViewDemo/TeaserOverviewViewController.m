@@ -1,5 +1,8 @@
 #import "TeaserOverviewViewController.h"
-#import "MyWebViewController.h"
+
+#import "FirstWebController.h"
+#import "SecondViewController.h"
+#import "ThirdWebViewController.h"
 
 @interface TeaserOverviewViewController()
 @property (nonatomic, weak) IBOutlet UIButton *firstWebButton;
@@ -28,9 +31,9 @@
  * Methode in Xcode.
  */
 - (void)firstWebButtonWasPressed:(UIButton *)sender {
-    MyWebViewController *webViewController = [[MyWebViewController alloc] init];
-    
-    webViewController.magazineURL = [NSURL URLWithString:@"http://www.chefkoch.de/"];
+    FirstWebController *webViewController = [[FirstWebController alloc] init];
+
+    webViewController.magazineURL = [NSURL URLWithString:@"http://www.chefkoch.de/magazin/artikel/897,0/AEG/Leckereien-rund-ums-Ei.html"];
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
@@ -39,8 +42,8 @@
  * Methode ist IBAction, es exisiert kein Aufruf in der Methode viewWillAppear:.
  */
 - (IBAction)secondWebButtonWasPressed:(UIButton *)sender {
-    MyWebViewController *webViewController = [[MyWebViewController alloc] init];
-    
+    SecondViewController *webViewController = [[SecondViewController alloc] init];
+
     webViewController.magazineURL = [NSURL URLWithString:@"http://www.chefkoch.de/magazin/artikel/897,0/AEG/Leckereien-rund-ums-Ei.html"];
     [self.navigationController pushViewController:webViewController animated:YES];
 }
@@ -52,9 +55,9 @@
  * dabei, in dem Fall kann (IBAction) auch gegen (void) getauscht werden.
  */
 - (IBAction)thirdWebButtonWasPressed:(UIButton *)sender {
-    MyWebViewController *webViewController = [[MyWebViewController alloc] init];
-    
-    webViewController.magazineURL = [NSURL URLWithString:@"https://www.myknight.de/"];
+    ThirdWebViewController *webViewController = [[ThirdWebViewController alloc] init];
+
+    webViewController.magazineURL = [NSURL URLWithString:@"http://www.chefkoch.de/magazin/artikel/897,0/AEG/Leckereien-rund-ums-Ei.html"];
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 

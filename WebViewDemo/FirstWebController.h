@@ -8,6 +8,6 @@
  * Zu klären: Warum wird hier das Attribut "copy" verwendet, anstatt "weak" oder
  * "strong" zu verwenden. Vermutung: Pass-by-reference ist Standardverhalten. 
  */
-@interface MyWebViewController : UIViewController
+@interface FirstWebController : UIViewController
 @property (nonatomic, copy) NSURL *magazineURL;
 @end
